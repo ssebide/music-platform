@@ -26,7 +26,7 @@ export async function LoginApi({
       return response;
   })
 
-  if (response.status != 400) {
+  if (response.status === 'success' && response.token) {
     const cookieStore = cookies();
   
     cookieStore.set('token', response.token)
